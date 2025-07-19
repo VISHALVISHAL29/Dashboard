@@ -1,3 +1,4 @@
+import os
 import gradio as gr
 import pandas as pd
 import plotly.express as px
@@ -452,4 +453,4 @@ with gr.Blocks() as demo:
     comparison_type_dropdown.change(trigger_report, inputs=[chemical_dropdown, start_input, end_input, comparison_type_dropdown], outputs=[report_output, plot_output])
 
 
-demo.launch()
+demo.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)))
